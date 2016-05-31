@@ -1,6 +1,6 @@
 cakephp-apache:
-  build: .
-  # image: kangjor/docker-cakephp-server
+  # build: .
+  image: kangjor/docker-cakephp-server
   ports:
     - 80:80
     - 443:443
