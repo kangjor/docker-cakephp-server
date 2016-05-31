@@ -1,0 +1,28 @@
+cakephp-apache:
+  build: .
+  # image: kangjor/docker-cakephp-server
+  ports:
+    - 80:80
+    - 443:443
+  environment:
+    DATABASE_URI: $DATABASE_URI
+  links:
+    - mysql
+  volumes:
+    - "./app:/var/www/html"
+
+
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: 'wpfhdnpq2015'
+  volumes_from:
+    - mysql-data
+
+mysql-data:
+  image: mysql
+  volumes:
+    - mysql:/var/lib/mysql
+  command: "ls"
